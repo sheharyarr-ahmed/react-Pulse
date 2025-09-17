@@ -8,6 +8,7 @@ const messages = [
 export default function App() {
   // this use state returns the state variable and the function, in the parathesis pf use state is the current value of the state variable hta tis step and the setStep is the updater function,, use state is also known as react hook as it reuturns an array of two values, the state variable and the updater function
   const [step, setStep] = useState(1);
+  const [nameObj, setName] = useState({ name: "sheharyar" });
   // const step = 1;
   function handlePrevious() {
     // alert("PREVIOUS");
@@ -16,6 +17,10 @@ export default function App() {
   function handleNext() {
     // alert("NEXT");
     if (step < 3) setStep(step + 1);
+    // nameObj.name = "hamza"; this is not the right way instead use the setName function or the updater function always update the state variable using the updater function
+    setName({ name: "yoyo" }); // this the right way to uodate the nameObj by using its setName updater function
+    console.log(nameObj.name);
+    console.log(nameObj);
   }
   return (
     <div className="steps">
@@ -26,7 +31,7 @@ export default function App() {
       </div>
 
       <p className="message">
-        Step {step}: {messages[step - 1]}
+        Step {step}: {messages[step - 1]} {nameObj.name}
       </p>
       <div className="buttons">
         <button

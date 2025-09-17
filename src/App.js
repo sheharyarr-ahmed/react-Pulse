@@ -13,19 +13,21 @@ export default function App() {
   // const step = 1;
   function handlePrevious() {
     // alert("PREVIOUS");
-    if (step > 1) setStep(step - 1);
+    if (step > 1) setStep((s) => s - 1);
   }
   function handleNext() {
     // alert("NEXT");
-    if (step < 3) setStep(step + 1);
+    if (step < 3) setStep((s) => s + 1);
     // nameObj.name = "hamza"; this is not the right way instead use the setName function or the updater function always update the state variable using the updater function
     // setName({ name: "yoyo" }); // this the right way to uodate the nameObj by using its setName updater function
     // console.log(nameObj.name);
     // console.log(nameObj);
   }
   return (
-    <div>
-      <button className="close" onClick={() => setIsOpen(!isOpen)}>
+    <>
+      {/* the fragment’s purpose here was to allow you to return both the button and the steps container as siblings */}
+      <button className="close" onClick={() => setIsOpen((is) => !is)}>
+        {/* “When the button is clicked, take the latest value of isOpen, flip it, and update the state with that new value.” */}
         &times;
       </button>
       {isOpen && (
@@ -56,6 +58,6 @@ export default function App() {
           </div>
         </div>
       )}{" "}
-    </div>
+    </>
   );
 }

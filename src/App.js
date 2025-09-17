@@ -1,15 +1,21 @@
+import { useState } from "react";
+
 const messages = [
   "Learn React ⚛️",
   "Apply for jobs 💼",
   "Invest your new income 🤑",
 ];
 export default function App() {
-  const step = 1;
+  // this use state returns the state variable and the function, in the parathesis pf use state is the current value of the state variable hta tis step and the setStep is the updater function,, use state is also known as react hook as it reuturns an array of two values, the state variable and the updater function
+  const [step, setStep] = useState(1);
+  // const step = 1;
   function handlePrevious() {
-    alert("PREVIOUS");
+    // alert("PREVIOUS");
+    if (step > 1) setStep(step - 1);
   }
   function handleNext() {
-    alert("NEXT");
+    // alert("NEXT");
+    if (step < 3) setStep(step + 1);
   }
   return (
     <div className="steps">

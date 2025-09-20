@@ -23,18 +23,6 @@ export default function App() {
     // console.log(nameObj.name);
     // console.log(nameObj);
   }
-  // here children represents an child prop which is an ore defined keyword
-  function Button({ textColor, bgColor, onClick, children }) {
-    return (
-      <button
-        style={{ backgroundColor: bgColor, color: textColor }}
-        onClick={onClick}
-      >
-        {children}
-      </button>
-    );
-  }
-
   return (
     <>
       {/* the fragment’s purpose here was to allow you to return both the button and the steps container as siblings */}
@@ -54,26 +42,19 @@ export default function App() {
             Step {step}: {messages[step - 1]}
           </p>
           <div className="buttons">
-            {/* now here comes the fun part now here we will implement the child prop part */}
-            <Button
-              textColor="#fff"
-              bgColor="#7950f2"
-              onClick={handlePrevious}
-              // text="Previous"
-              // emoji="👈🏻"
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              // onClick={() => alert("you clicked on previous")}
+              onClick={handlePrevious} //passing the function not calling it
             >
-              <span>👈🏻</span>Previous
-            </Button>
-            {/* implementation of teh child prop */}
-            <Button
-              textColor="#fff"
-              bgColor="#7950f2"
+              PREVIOUS
+            </button>
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
               onClick={handleNext}
-              // text="Next"
-              // emoji="👉🏻"
             >
-              <span>👉🏻</span>Next
-            </Button>
+              NEXT
+            </button>
           </div>
         </div>
       )}{" "}
